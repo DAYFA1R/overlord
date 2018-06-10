@@ -18,7 +18,8 @@ Two things I'd like to call out before what I can only anticipate as probable cr
 Subject to change, but this section represents the spec that I wish to build `overlord` in mind with.
 
 ### `overlord` (`ov`): Get general usage information
-Nothing special to see here, it's essentially the same as running `git`, or the `help` argument in most applications. 
+Nothing special to see here, it's essentially the same as running `git`, or the `help` argument in most applications.
+
 
 ### `overlord init` (`ov i`): Initialize new project
 Initializes the current directory as a new overlord project. Will run the init helper if a `.overlord.yaml` file is not already present in the directory.
@@ -26,8 +27,14 @@ Initializes the current directory as a new overlord project. Will run the init h
 #### Additional arguments
 *	`-r`: Reruns the init helper prepopulated by `.overlord.yaml`
 
+
+### `overlord ls` (`ov l`): List all projects
+Returns a list of all the unique id's that were initializated during the `overlord init` setup.
+
+
 ### `overlord <unique-id>` (`ov <uid>`): Jump to project directory
 Basically `cd`'s you into the root directory of your project (determined by the unique id) that was specified through init.
+
 
 ### `overlord build` (`ov b`): Build project
 Executes whatever was provided as the build command during the init process. Can also be supplied in the format `overlord <unique-id> build` if you want to build a project external to your current directory, without actually changing directories.
@@ -35,11 +42,14 @@ Executes whatever was provided as the build command during the init process. Can
 #### Additional arguments
 *	`-r`: Runs the project after build process is completed
 
+
 ### `overlord run` (`ov r`): Run project
 Executes whatever was provided as the run command during the init process. Can also be supplied in the format `overlord <unique-id> run` if you want to run a project external to your current directory, without actually changing directories.
 
+
 ### `overlord edit` (`ov e`): Edit project/open in editor
 Executes whatever was provided as the editor command during the init process.
+
 
 ## Footnotes
 *	Yes, the name of this project is 100% inspired by Starcraft.
