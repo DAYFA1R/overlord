@@ -1,0 +1,6 @@
+---
+uid: sample-project
+dir: ~/Projects/tools
+run: echo "did the run stuff from yaml file"
+build: echo "ran build from yaml"
+...
