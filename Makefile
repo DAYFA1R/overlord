@@ -18,6 +18,8 @@ TEST_DIR := test
 TEST_SOURCES := $(shell find $(TEST_DIR) -type f -name *.$(SRCEXT))
 TEST_LIB := -L lib -lgtest -pthread
 
+GTEST_DIR := test/googletest-release-1.8.0/googletest
+
 $(TARGET): $(OBJECTS)
 	@mkdir -p $(TARGETDIR)
 	@echo " Linking..."
@@ -32,7 +34,17 @@ clean:
 	@echo " $(RM) -r $(BUILDDIR) $(TARGETDIR)"; $(RM) -r $(BUILDDIR) $(TARGETDIR)
 
 # Tests
-# tester:
+tester:
+	@mkdir -p $(TARGETDIR)
+	@mkdir -p $(BUILDDIR)/test
+
+	$(CXX) -isystem $(GTEST_DIR)/include -I$(GTEST_DIR) \
+		-pthread -c $(GTEST_DIR)/src/gtest-all.cc -o $(BUILDDIR)/test/gtest-all.o
+
+	ar -rv lib/libgtest.a $(BUILDDIR)/test/gtest-all.o
+
+	$(CXX) -isystem ${GTEST_DIR}/include -pthread $(TEST_SOURCES) lib/libgtest.a \
+    	-o $(TARGETDIR)/run_tests
 # 	@mkdir -p $(TARGETDIR)
 # 	$(CXX) $(CFLAGS) $(TEST_SOURCES) $(INC) $(TEST_LIB) -o $(TEST_TARGET)
 
