@@ -3,7 +3,7 @@ SRCDIR := src
 BUILDDIR := build
 TARGETDIR := bin
 TARGETNAME := ov
-TARGET:= $(TARGETDIR)/$(TARGETNAME)
+TARGET := $(TARGETDIR)/$(TARGETNAME)
 
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
@@ -11,6 +11,12 @@ OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 CFLAGS := -g -Wall
 LIB := -L lib -lyaml-cpp
 INC := -I include
+
+TEST_NAME := tester
+TEST_TARGET := $(TARGETDIR)/$(TEST_NAME)
+TEST_DIR := test
+TEST_SOURCES := $(shell find $(TEST_DIR) -type f -name *.$(SRCEXT))
+TEST_LIB := -L lib -lgtest -pthread
 
 $(TARGET): $(OBJECTS)
 	@mkdir -p $(TARGETDIR)
@@ -24,3 +30,10 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 clean:
 	@echo " Cleaning..."; 
 	@echo " $(RM) -r $(BUILDDIR) $(TARGETDIR)"; $(RM) -r $(BUILDDIR) $(TARGETDIR)
+
+# Tests
+tester:
+	@mkdir -p $(TARGETDIR)
+	$(CC) $(CFLAGS) $(TEST_SOURCES) $(INC) $(TEST_LIB) -o $(TEST_TARGET)
+
+.PHONY: clean
