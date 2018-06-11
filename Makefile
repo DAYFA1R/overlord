@@ -9,14 +9,14 @@ SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 CFLAGS := -g -Wall
-LIB := -L lib -lyaml-cpp
+LIB := -L lib -lstdc++ -lyaml-cpp
 INC := -I include
 
 TEST_NAME := tester
 TEST_TARGET := $(TARGETDIR)/$(TEST_NAME)
 TEST_DIR := test
 TEST_SOURCES := $(shell find $(TEST_DIR) -type f -name *.$(SRCEXT))
-TEST_LIB := -L lib -lgtest -pthread
+TEST_LIB := -L lib -lstdc++ -lgtest -pthread
 
 $(TARGET): $(OBJECTS)
 	@mkdir -p $(TARGETDIR)
