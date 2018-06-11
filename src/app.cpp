@@ -15,9 +15,9 @@ App::App(int totalArgs, char** argValues) {
   } else {
     // Default to help command if no args passed
     primaryCommand = "help";
+  }
   
   // Read from master file in home directory
-  }
 }
 
 void App::init() {
