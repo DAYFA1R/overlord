@@ -1,17 +1,27 @@
 language: c++
+
 os:
   - linux
+
 compiler:
   - gcc
+
+matrix:
+  include:
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-4.9
+      env:
+         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+
 before_install:
-  - |
-    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y \
-      && sudo apt-get update -qq \
-      && if [ "$CXX" == "g++" ]; then
-        sudo apt-get install -qq g++-7 && export CXX="g++-7" CC="gcc-7"
-      fi
-    fi
+    - eval "${MATRIX_EVAL}"
+
 script:
   - make
   - make tester
