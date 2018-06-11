@@ -23,6 +23,8 @@ before_install:
     - eval "${MATRIX_EVAL}"
 
 script:
+  - $CC
+  - $CXX
   - gcc --version
   - g++ --version
   - make
