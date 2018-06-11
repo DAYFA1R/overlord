@@ -28,7 +28,7 @@ Two things I'd like to call out before what I can only anticipate as probable cr
 - Run `make clean` to wipe out any generated files
 
 ## Testing
-- From the root of the repository, run `make tester`
+- From the root of the repository, run `make tests`
 - Run `bin/run_tests`
 - Assuming that little build icon in the top of this README is green, nothing should have exploded...yet
 

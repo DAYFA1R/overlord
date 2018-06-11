@@ -12,13 +12,12 @@ CFLAGS := -g -Wall -std=c++11
 LIB := -L lib -lyaml-cpp
 INC := -I include
 
-TEST_NAME := tester
+TEST_NAME := run_tests
 TEST_TARGET := $(TARGETDIR)/$(TEST_NAME)
 TEST_DIR := test
 TEST_SOURCES := $(shell find $(TEST_DIR) -type f -name *.$(SRCEXT))
 TEST_LIB := -L lib -lgtest -pthread
-
-GTEST_DIR := test/googletest-release-1.8.0/googletest
+GTEST_DIR := $(TEST_DIR)/googletest-release-1.8.0/googletest
 
 $(TARGET): $(OBJECTS)
 	@mkdir -p $(TARGETDIR)
@@ -34,7 +33,7 @@ clean:
 	@echo " $(RM) -r $(BUILDDIR) $(TARGETDIR)"; $(RM) -r $(BUILDDIR) $(TARGETDIR)
 
 # Tests
-tester:
+tests:
 	@mkdir -p $(TARGETDIR)
 	@mkdir -p $(BUILDDIR)/test
 
@@ -44,8 +43,6 @@ tester:
 	ar -rv lib/libgtest.a $(BUILDDIR)/test/gtest-all.o
 
 	$(CXX) -isystem ${GTEST_DIR}/include -pthread $(TEST_SOURCES) lib/libgtest.a \
-    	-o $(TARGETDIR)/run_tests
-# 	@mkdir -p $(TARGETDIR)
-# 	$(CXX) $(CFLAGS) $(TEST_SOURCES) $(INC) $(TEST_LIB) -o $(TEST_TARGET)
+    	-o $(TEST_TARGET)
 
 .PHONY: clean
