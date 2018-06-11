@@ -18,5 +18,5 @@ before_install:
 
 script:
   - make
-  - make tester
+  - make tests
   - bin/run_tests
