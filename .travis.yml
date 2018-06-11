@@ -19,8 +19,18 @@ compiler:
 #       env:
 #          - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
+# before_install:
+#     - eval "${MATRIX_EVAL}"
+
 before_install:
-    - eval "${MATRIX_EVAL}"
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y \
+      && sudo apt-get update -qq \
+      && if [ "$CXX" == "g++" ]; then
+        sudo apt-get install -qq g++-4.7 && export CXX="g++-4.7" CC="gcc-4.7"
+      fi
+    fi
 
 script:
   - make
