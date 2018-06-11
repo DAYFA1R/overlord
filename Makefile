@@ -32,8 +32,8 @@ clean:
 	@echo " $(RM) -r $(BUILDDIR) $(TARGETDIR)"; $(RM) -r $(BUILDDIR) $(TARGETDIR)
 
 # Tests
-tester:
-	@mkdir -p $(TARGETDIR)
-	$(CXX) $(CFLAGS) $(TEST_SOURCES) $(INC) $(TEST_LIB) -o $(TEST_TARGET)
+# tester:
+# 	@mkdir -p $(TARGETDIR)
+# 	$(CXX) $(CFLAGS) $(TEST_SOURCES) $(INC) $(TEST_LIB) -o $(TEST_TARGET)
 
 .PHONY: clean
