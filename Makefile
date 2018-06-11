@@ -8,7 +8,7 @@ TARGET := $(TARGETDIR)/$(TARGETNAME)
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-CFLAGS := -g -Wall
+CFLAGS := -g -Wall -std=c++11
 LIB := -L lib -lyaml-cpp
 INC := -I include
 

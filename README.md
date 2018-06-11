@@ -1,4 +1,4 @@
-# Overlord
+# Overlord [![Build Status](https://travis-ci.org/DAYFA1R/overlord.svg?branch=master)](https://travis-ci.org/DAYFA1R/overlord)
 **Command line tool for rapidly moving between projects and aliasing common development commands.**
 
 *by DAYFA1R*
