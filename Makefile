@@ -8,15 +8,15 @@ TARGET := $(TARGETDIR)/$(TARGETNAME)
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-CFLAGS := -g -Wall
-LIB := -L lib -lstdc++ -lyaml-cpp
+CFLAGS := -g -Wall -std=c++11
+LIB := -L lib -lyaml-cpp
 INC := -I include
 
 TEST_NAME := tester
 TEST_TARGET := $(TARGETDIR)/$(TEST_NAME)
 TEST_DIR := test
 TEST_SOURCES := $(shell find $(TEST_DIR) -type f -name *.$(SRCEXT))
-TEST_LIB := -L lib -lstdc++ -lgtest -pthread
+TEST_LIB := -L lib -lgtest -pthread
 
 $(TARGET): $(OBJECTS)
 	@mkdir -p $(TARGETDIR)
