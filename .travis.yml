@@ -34,5 +34,5 @@ before_install:
 
 script:
   - make
-  # - make tester
-  # - bin/tester
+  - make tester
+  - bin/run_tests
