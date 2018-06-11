@@ -24,6 +24,7 @@ before_install:
 
 script:
   - gcc --version
+  - g++ --version
   - make
   - make tester
   - bin/tester

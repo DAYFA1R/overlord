@@ -1,4 +1,4 @@
-CC := g++
+CXX ?= g++
 SRCDIR := src
 BUILDDIR := build
 TARGETDIR := bin
@@ -21,11 +21,11 @@ TEST_LIB := -L lib -lstdc++ -lgtest -pthread
 $(TARGET): $(OBJECTS)
 	@mkdir -p $(TARGETDIR)
 	@echo " Linking..."
-	@echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
+	@echo " $(CXX) $^ -o $(TARGET) $(LIB)"; $(CXX) $^ -o $(TARGET) $(LIB)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(BUILDDIR)
-	@echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
+	@echo " $(CXX) $(CFLAGS) $(INC) -c -o $@ $<"; $(CXX) $(CFLAGS) $(INC) -c -o $@ $<
 
 clean:
 	@echo " Cleaning..."; 
@@ -34,6 +34,6 @@ clean:
 # Tests
 tester:
 	@mkdir -p $(TARGETDIR)
-	$(CC) $(CFLAGS) $(TEST_SOURCES) $(INC) $(TEST_LIB) -o $(TEST_TARGET)
+	$(CXX) $(CFLAGS) $(TEST_SOURCES) $(INC) $(TEST_LIB) -o $(TEST_TARGET)
 
 .PHONY: clean
