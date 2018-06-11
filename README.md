@@ -17,15 +17,15 @@ Two things I'd like to call out before what I can only anticipate as probable cr
 ## Install
 - From the root of the repository, run `make`
 
-**For development**:
-	- run `bin/ov` to start overlord
+**For development**
+- run `bin/ov` to start overlord
 
-**For actual use**:
-	- copy `bin/ov` to any of the directories listed in `$PATH`
-	- run `ov` to start overlord
+**For actual use**
+- copy `bin/ov` to any of the directories listed in `$PATH`
+- run `ov` to start overlord
 
-*Optional*:
-	- run `make clean` to wipe out any generated files
+*Optional*
+- run `make clean` to wipe out any generated files
 
 ## Features/Usage/Roadmap
 Subject to change, but this section represents the spec that I wish to build `ov` in mind with.
