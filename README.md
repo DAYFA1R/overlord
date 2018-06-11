@@ -18,14 +18,22 @@ Two things I'd like to call out before what I can only anticipate as probable cr
 - From the root of the repository, run `make`
 
 **For development**
-- run `bin/ov` to start overlord
+- Run `bin/ov` to start overlord
 
 **For actual use**
-- copy `bin/ov` to any of the directories listed in `$PATH`
-- run `ov` to start overlord
+- `cp bin/ov` to any of the directories listed in `$PATH`
+- Run `ov` to start overlord
 
 *Optional*
-- run `make clean` to wipe out any generated files
+- Run `make clean` to wipe out any generated files
+
+## Testing
+- From the root of the repository, run `make tester`
+- Run `bin/run_tests`
+- Assuming that little build icon in the top of this README is green, nothing should have exploded...yet
+
+*Optional*
+- Run `make clean` to wipe out any generated files
 
 ## Features/Usage/Roadmap
 Subject to change, but this section represents the spec that I wish to build `ov` in mind with.
