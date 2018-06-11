@@ -1,4 +1,4 @@
-CC := gcc
+CC := g++
 SRCDIR := src
 BUILDDIR := build
 TARGETDIR := bin
@@ -8,15 +8,15 @@ TARGET := $(TARGETDIR)/$(TARGETNAME)
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-CFLAGS := -g -Wall -std=c++11
-LIB := -L lib -lyaml-cpp
+CFLAGS := -g -Wall -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=0
+LIB := -L lib -lstdc++ -lyaml-cpp
 INC := -I include
 
 TEST_NAME := tester
 TEST_TARGET := $(TARGETDIR)/$(TEST_NAME)
 TEST_DIR := test
 TEST_SOURCES := $(shell find $(TEST_DIR) -type f -name *.$(SRCEXT))
-TEST_LIB := -L lib -lgtest -pthread
+TEST_LIB := -L lib -lstdc++ -lgtest -pthread
 
 $(TARGET): $(OBJECTS)
 	@mkdir -p $(TARGETDIR)
