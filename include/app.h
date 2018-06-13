@@ -14,6 +14,7 @@ class App {
 public:
   App(int totalArgs, char** argValues);
   void init();
+  string getPrimaryCommand();
 };
 
 #endif
