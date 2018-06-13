@@ -40,7 +40,7 @@ tests:
 	$(CXX) -isystem include -I$(GTEST_DIR) \
 		-pthread -c $(GTEST_DIR)/src/gtest-all.cc -o $(BUILDDIR)/test/gtest-all.o
 
-	ar -rv lib/libgtest.a $(BUILDDIR)/test/gtest-all.o
+	ar -rv lib/libgtest.a lib/libyaml-cpp.a $(BUILDDIR)/test/gtest-all.o
 
 	$(CXX) -isystem include -pthread $(TEST_SOURCES) lib/libgtest.a lib/libyaml-cpp.a \
     	-o $(TEST_TARGET)
