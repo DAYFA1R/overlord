@@ -24,3 +24,7 @@ void App::init() {
   // Testing init || TODO: remove this later
   cout << "Active Command: " << this->primaryCommand << "\n";
 }
+
+string App::getPrimaryCommand() {
+  return this->primaryCommand;
+}
