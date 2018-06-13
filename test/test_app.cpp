@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "../../../../src/app.cpp"
+#include "../src/app.cpp"
 
 namespace {
   // Stub args
