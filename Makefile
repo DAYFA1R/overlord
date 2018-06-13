@@ -42,7 +42,7 @@ tests:
 
 	ar -rv lib/libgtest.a $(BUILDDIR)/test/gtest-all.o
 
-	$(CXX) -isystem ${GTEST_DIR}/include $(INC) -pthread $(TEST_SOURCES) lib/libgtest.a \
+	$(CXX) -isystem ${GTEST_DIR}/include $(INC) -pthread $(TEST_SOURCES) lib/libgtest.a lib/libyaml-cpp.a \
     	-o $(TEST_TARGET)
 
 .PHONY: clean
