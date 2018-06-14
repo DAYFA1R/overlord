@@ -16,10 +16,14 @@ before_install:
       fi
     fi
 
+install:
+  # Codecov
+  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
+
 script:
   - make
   - make tests
-  - bin/run_tests - with-coverage
+  - bin/run_tests
 
 after_success: 
   - bash <(curl -s https://codecov.io/bash)
