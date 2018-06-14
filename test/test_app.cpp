@@ -7,7 +7,7 @@
 namespace {
   // Global stubs
   // Stub config
-  YAML::Node config = YAML::LoadFile("{uid: sample-project, dir: ~/Projects/sandbox}");
+  YAML::Node config = YAML::Load("{uid: 'sample-project', dir: '~/Projects/sandbox'}");
 
   // Test if App::primaryCommand is the second value in argv
   TEST(AppConstructor, primaryCommandIsArgAfterExe) {
