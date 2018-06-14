@@ -2,3 +2,4 @@ build/
 bin/
 lib/libgtest.a
 .DS_Store
+*.gcno
