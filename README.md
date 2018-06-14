@@ -1,4 +1,4 @@
-# Overlord [![Build Status](https://travis-ci.org/DAYFA1R/overlord.svg?branch=master)](https://travis-ci.org/DAYFA1R/overlord)
+# Overlord [![Build Status](https://travis-ci.org/DAYFA1R/overlord.svg?branch=master)](https://travis-ci.org/DAYFA1R/overlord) [![codecov](https://codecov.io/gh/DAYFA1R/overlord/branch/master/graph/badge.svg)](https://codecov.io/gh/DAYFA1R/overlord)
 **Command line tool for rapidly moving between projects and aliasing common development commands.**
 
 *by DAYFA1R*
