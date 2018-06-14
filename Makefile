@@ -42,7 +42,7 @@ tests:
 
 	ar -rv lib/libgtest.a lib/libyaml-cpp.a $(BUILDDIR)/test/gtest-all.o
 
-	$(CXX) -g --coverage -std=c++11 -isystem include -pthread $(TEST_SOURCES) lib/libgtest.a lib/libyaml-cpp.a \
+	$(CXX) $(CFLAGS) --coverage -isystem include -pthread $(TEST_SOURCES) lib/libgtest.a lib/libyaml-cpp.a \
     	-o $(TEST_TARGET)
 
 .PHONY: clean
