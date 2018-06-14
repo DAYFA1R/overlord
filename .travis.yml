@@ -16,10 +16,6 @@ before_install:
       fi
     fi
 
-install:
-  # Codecov
-  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
-
 script:
   - make
   - make tests
