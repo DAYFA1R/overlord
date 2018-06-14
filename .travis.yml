@@ -20,6 +20,7 @@ script:
   - make
   - make tests
   - bin/run_tests
+  - codecov
 
 after_success: 
   - bash <(curl -s https://codecov.io/bash)
