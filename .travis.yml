@@ -7,7 +7,7 @@ before_install:
   - sudo apt-get update -qq
 
 install: 
-- sudo apt-get install g++-7 binutils-2.26
+- sudo apt-get install g++-7 binutils-2.26 --allow-unauthenticated
 # addons:
 #   apt:
 #     sources:
