@@ -1,5 +1,5 @@
 dist: trusty
-sudo: required
+sudo: require
 language: c++
 
 os:
