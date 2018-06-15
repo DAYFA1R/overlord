@@ -13,7 +13,7 @@ install:
   - export CC="gcc-7"
   - export CXX="g++-7"
   - export PATH=/usr/lib/binutils-2.26/bin:${PATH}
-  # Check versions of gcc, g++ and cmake
+  # Check versions of gcc, g++ and binutils
   - gcc-7 -v && g++-7 -v && ld -v
 
 script:
