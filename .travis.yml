@@ -1,12 +1,6 @@
 sudo: require
-dist: trusty
-language: c++
-
-os:
-  - linux
-
-compiler:
-  - gcc
+language: cpp
+compiler: gcc
 
 before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
