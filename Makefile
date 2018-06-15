@@ -16,7 +16,7 @@ TEST_NAME := run_tests
 TEST_TARGET := $(TARGETDIR)/$(TEST_NAME)
 TEST_DIR := test
 TEST_SOURCES := $(shell find $(TEST_DIR) -type f -name *.$(SRCEXT))
-TEST_LIB := -L lib -lgtest -pthread
+TEST_LIB := -L lib -lgtest -lyaml-cpp -pthread
 GTEST_DIR := $(TEST_DIR)/googletest-release-1.8.0/googletest
 
 $(TARGET): $(OBJECTS)
@@ -31,6 +31,7 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 clean:
 	@echo " Cleaning..."; 
 	@echo " $(RM) -r $(BUILDDIR) $(TARGETDIR)"; $(RM) -r $(BUILDDIR) $(TARGETDIR)
+	@echo " $(RM) *.gnco *.gcna"; $(RM) *.gcno *.gcda
 
 # Tests
 tests:
@@ -42,7 +43,7 @@ tests:
 
 	ar -rv lib/libgtest.a lib/libyaml-cpp.a $(BUILDDIR)/test/gtest-all.o
 
-	$(CXX) $(CFLAGS) --coverage -isystem include -pthread $(TEST_SOURCES) lib/libgtest.a lib/libyaml-cpp.a \
-    	-o $(TEST_TARGET)
+	$(CXX) $(CFLAGS) --coverage -isystem include -pthread $(TEST_SOURCES) \
+		-o $(TEST_TARGET) $(TEST_LIB)
 
 .PHONY: clean

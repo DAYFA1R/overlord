@@ -1,22 +1,23 @@
-language: c++
-
-os:
-  - linux
-
-compiler:
-  - gcc
+sudo: require
+os: linux
+language: cpp
+compiler: gcc
 
 before_install:
-  - |
-    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y \
-      && sudo apt-get update -qq \
-      && if [ "$CXX" == "g++" ]; then
-        sudo apt-get install -qq g++-4.7 && export CXX="g++-4.7" CC="gcc-4.7"
-      fi
-    fi
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+
+install: 
+  - sudo apt-get install -qq g++-7 binutils-2.26 --allow-unauthenticated
+  # Set compiler env vars to new gcc version
+  - export CC="gcc-7"
+  - export CXX="g++-7"
+  - export PATH=/usr/lib/binutils-2.26/bin:${PATH}
+  # Check versions of gcc, g++ and binutils
+  - gcc-7 -v && g++-7 -v && ld -v
 
 script:
+  # Make app and run tests
   - make
   - make tests
   - bin/run_tests
