@@ -43,7 +43,7 @@ tests:
 
 	ar -rv lib/libgtest.a lib/libyaml-cpp.a $(BUILDDIR)/test/gtest-all.o
 
-	$(CXX) $(CFLAGS) -D_GLIBCXX_USE_CXX11_ABI=0 --coverage -isystem include -pthread $(TEST_SOURCES) \
+	$(CXX) $(CFLAGS) -D_GLIBCXX_USE_CXX11_ABI=1 --coverage -isystem include -pthread $(TEST_SOURCES) \
 		-o $(TEST_TARGET) $(TEST_LIB)
 
 .PHONY: clean
