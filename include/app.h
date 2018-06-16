@@ -7,9 +7,13 @@
 using namespace std;
 
 class App {
+  // Variables
   vector<string> projectList;
   vector<string> arguments;
   string primaryCommand;
+  
+  // Methods
+  void delegateCommand();
 
 public:
   App(int totalArgs, char** argValues);
