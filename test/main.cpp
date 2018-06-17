@@ -2,7 +2,9 @@
 
 int main(int argc, char** argv) {
 	::testing::InitGoogleTest(&argc, argv);
-	//setenv("TESTING", "true", true);
-	std::cout << "$TESTING";
+	setenv("MODE", "test", true);
+
+	// const char* myenvvar = getenv("MODE");
+	// std::cout << myenvvar;
 	return RUN_ALL_TESTS();
 }

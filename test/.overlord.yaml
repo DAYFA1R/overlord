@@ -7,8 +7,8 @@ projects:
     build: make -C /home/sieg/Projects/overlord
     test: make tests && bin/run_tests
   -
-    uid: sig
-    dir: /home/sieg/Projects/gbi/cust_signet
-    run: npm run start --prefix ~/Projects/gbi/cust_signet
-    build: npm run build
+    uid: snp
+    dir: /home/sieg/Projects/nup/some-node-project
+    run: npm run start --prefix ~/Projects/nup/some-node-project
+    build: npm run build -- prefix ~/Projects/nup/some-node-project
 ...

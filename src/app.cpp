@@ -5,13 +5,18 @@
 #include <fstream>
 
 App::App(int totalArgs, char** argValues) {
-  // Determine path to config and Load YAML from it
-  // if (getenv("TESTING") == "true") {
-  //   configPath = string("test/.overlord.yaml");
-  // }
-  //  else {
-  configPath = string(getenv("HOME")) += "/.overlord.yaml";
-  // }
+  // Check if app should be in unit test mode or user mode
+  // Then determine path to config and Load YAML from it
+  string app_mode = string(getenv("MODE"));
+  if (app_mode == "test") {
+    // use stubbed overlord.yaml
+    configPath = string("test/.overlord.yaml");
+  } else {
+    // use actual
+    configPath = string(getenv("HOME")) += "/.overlord.yaml";
+  }
+
+  // Load the config
   config = YAML::LoadFile(configPath);
 
   // Loop through args and retain as type string (from char*)
@@ -23,12 +28,10 @@ App::App(int totalArgs, char** argValues) {
 
     // check if the first arg is the UID of an already declared project
     this->activeProjectIndex = this->lookupProjectByUID(this->arguments.at(0));
-
     // if UID was found
     if (this->activeProjectIndex >= 0) {
       // Set it as the session's active project
       this->activeProject = this->config["projects"][this->activeProjectIndex];
-
       // if a command was passed with UID
       if (totalArgs > 2) {
         // use the second passed arg for delegation
@@ -37,7 +40,6 @@ App::App(int totalArgs, char** argValues) {
         cout << "\033[1;35moverlord \033[1;32m(success):\033[0m \033[1m Project \033[1;36m" << this->activeProject["uid"] << "\033[1;37m found!\033[0m" <<endl;
       }
     }
-
     // Otherwise
     else {
       // Check if current directory is the directory of a declared project
