@@ -89,7 +89,7 @@ namespace {
 
     // Create overlord instance and asser
     App overlord(argc, argv);
-    ASSERT_EQ(overlord.init(), argv[1]);
+    ASSERT_EQ(overlord.init(), 0);
   }
 
   TEST(AppConstructor, editReturnsSuccess) {
@@ -101,6 +101,6 @@ namespace {
 
     // Create overlord instance and asser
     App overlord(argc, argv);
-    ASSERT_EQ(overlord.init(), argv[1]);
+    ASSERT_EQ(overlord.init(), 0);
   }
 }
