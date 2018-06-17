@@ -8,7 +8,7 @@ TARGET := $(TARGETDIR)/$(TARGETNAME)
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-CFLAGS := -g -Wall -std=c++11
+CFLAGS := -g -Wall -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=0
 LIB := -L lib -lyaml-cpp
 INC := -I include
 
@@ -38,7 +38,7 @@ tests:
 	@mkdir -p $(TARGETDIR)
 	@mkdir -p $(BUILDDIR)/test
 
-	$(CXX) -std=c++11 -isystem include -I$(GTEST_DIR) \
+	$(CXX) -isystem include -I$(GTEST_DIR) \
 		-pthread -c $(GTEST_DIR)/src/gtest-all.cc -o $(BUILDDIR)/test/gtest-all.o
 
 	ar -rv lib/libgtest.a lib/libyaml-cpp.a $(BUILDDIR)/test/gtest-all.o

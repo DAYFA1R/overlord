@@ -3,12 +3,12 @@ projects:
   -
     uid: ov
     dir: /home/sieg/Projects/nup/overlord
-    run: bin/ov
-    build: make
+    run: /home/sieg/Projects/nup/overlord/bin/ov
+    build: make -C /home/sieg/Projects/overlord
     test: make tests && bin/run_tests
   -
     uid: sig
     dir: /home/sieg/Projects/gbi/cust_signet
-    run: npm run start
+    run: npm run start --prefix ~/Projects/gbi/cust_signet
     build: npm run build
 ...

@@ -2,6 +2,7 @@
 #include "yaml-cpp/yaml.h"
 
 // Test this source file
+#include "../src/globals.cpp"
 #include "../src/app.cpp"
 
 namespace {

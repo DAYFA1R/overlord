@@ -18,6 +18,7 @@ install:
 
 script:
   # Make app and run tests
+  - pwd
   - make
   - make tests
   - bin/run_tests
