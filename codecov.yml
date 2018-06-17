@@ -1,0 +1,3 @@
+ignore:
+  - include/yaml-cpp
+  - include/gtest
