@@ -68,4 +68,5 @@ Executes whatever was provided as the editor command during the init process.
 
 ## Footnotes
 *	Yes, the name of this project is 100% inspired by Starcraft.
+
 ![Spawn more overlords](http://classic.battle.net/images/battle/scc/zerg/pix/units/Overlord1.gif)
