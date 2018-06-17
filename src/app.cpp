@@ -105,6 +105,7 @@ string App::getActiveProjectUID() {
   if (this->activeProjectIndex >= 0) {
     return this->activeProject["uid"].as<string>();
   }
+  return "No project found";
 }
 
 int App::delegateCommand() {
@@ -152,6 +153,5 @@ int App::delegateCommand() {
 int App::runProject() {
   string runCommand = this->activeProject["run"].as<string>();
   cout << "\033[1;35moverlord \033[1;32m(success):\033[0m \033[1m Executing \033[1;36m" << runCommand << "\033[0m" <<endl;
-  system(runCommand.c_str());
-  return 0;
+  return system(runCommand.c_str());
 }

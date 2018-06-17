@@ -5,6 +5,6 @@
 
 string global::getCurrentWorkingDirectory() {
   char buffer[FILENAME_MAX];
-  GetCurrentDir(buffer, FILENAME_MAX);
-  return string(buffer);
+  char* directory = GetCurrentDir(buffer, FILENAME_MAX);
+  return string(directory);
 }
