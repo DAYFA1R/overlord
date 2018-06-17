@@ -4,3 +4,4 @@ lib/libgtest.a
 .DS_Store
 *.gcno
 *.gcda
+test/.overlord.yaml

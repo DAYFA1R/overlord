@@ -3,22 +3,31 @@
 
 #include <string>
 #include <vector>
+#include "yaml-cpp/yaml.h"
 
 using namespace std;
 
 class App {
   // Variables
-  vector<string> projectList;
   vector<string> arguments;
   string primaryCommand;
+  string configPath;
+  YAML::Node config;
+  signed int activeProjectIndex = -1;
+  YAML::Node activeProject;
+
   
   // Methods
-  void delegateCommand();
+  int delegateCommand();
+  signed int lookupProjectByChildDir();
+  signed int lookupProjectByUID(string passedArg);
+  int runProject();
 
 public:
   App(int totalArgs, char** argValues);
-  void init();
+  int init();
   string getPrimaryCommand();
+  string getActiveProjectUID();
 };
 
 #endif

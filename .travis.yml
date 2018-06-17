@@ -20,6 +20,7 @@ script:
   # Make app and run tests
   - make
   - make tests
+  - cp test/.overlord.yaml ~/ # copy stub yaml conf to home directory for user-simulated executable test
   - bin/run_tests
 
 after_success: 
