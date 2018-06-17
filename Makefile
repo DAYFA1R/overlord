@@ -32,9 +32,11 @@ clean:
 	@echo " Cleaning..."; 
 	@echo " $(RM) -r $(BUILDDIR) $(TARGETDIR)"; $(RM) -r $(BUILDDIR) $(TARGETDIR)
 	@echo " $(RM) *.gnco *.gcna"; $(RM) *.gcno *.gcda
+	@echo " $(RM) test/.overlord.yaml"; $(RM) test/.overlord.yaml
 
 # Tests
 tests:
+	@echo " Generating stub overlord.yaml"; test/generate-conf.sh
 	@mkdir -p $(TARGETDIR)
 	@mkdir -p $(BUILDDIR)/test
 
