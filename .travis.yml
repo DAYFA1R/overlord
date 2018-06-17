@@ -18,9 +18,9 @@ install:
 
 script:
   # Make app and run tests
-  - pwd
   - make
   - make tests
+  - cp test/.overlord.yaml ~/ # copy stub yaml conf to home directory for user-simulated executable test
   - bin/run_tests
 
 after_success: 
