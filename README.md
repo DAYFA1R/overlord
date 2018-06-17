@@ -6,7 +6,7 @@
 ## Description
 Building this out because I want to streamline context switching on different projects, and standardize the tech-specific commands I run into generically-termed commands that can be configured on a per-project basis (eg. set up the commands once and never worry about it again). For example, running a compiled project and building the project from source is a pretty common ritual among a variety of languages/frameworks. If you are maintaining a Node.js app, maybe you use `npm run start` to boot up your app. On the other hand, maybe you are mainting a C++ application and are manually running an output file as `./someExecutable`. Essentially, the purpose of this software is to define these commands *once* in a configuration file, and simply execute `ov run`.
 
-Another objective of this program is to remove the redundancy of having to traverse your file system. If you are on a system where you have multiple projects relating to multiple organizations, some of which are for sandbox/demo purposes and others which are full fledged applications, you probably have some sort of semantic folder structure to keep things separate. That's cool and all, but as of late I've become conscious of how much `cd`ing and tab completion I'm doing to jump around my system throughout my day to day. I'd like to have a representation of the `cd` command within `ov`, which will take you directly to your project (eg. `ov <myProjectId>` == `cd ~/some/folder/with/my/repo`).
+Another objective of this program is to remove the redundancy of having to traverse your file system. If you are on a system where you have multiple projects relating to multiple organizations, some of which are for sandbox/demo purposes and others which are full fledged applications, you probably have some sort of semantic folder structure to keep things separate. That's cool and all, but as of late I've become conscious of how much `cd`ing and tab completion I'm doing to jump around my system throughout my day to day.
 
 Two things I'd like to call out before what I can only anticipate as probable criticism:
 
@@ -51,8 +51,8 @@ Initializes the current directory as a new overlord project and generates a `.ov
 ### `ov ls` (`l`): List all projects
 Returns a list of all the unique id's that were initializated during the `ov init` setup.
 
-### `ov <unique-id>`: Jump to project directory
-Basically `cd`'s you into the root directory of your project (determined by the unique id) that was specified through init.
+### `ov <unique-id> <command>`: Perform command on remote project
+Run command on project regardless of current directory.
 
 ### `ov build` (`b`): Build project
 Executes whatever was provided as the build command during the init process. Can also be supplied in the format `ov <unique-id> build` if you want to build a project external to your current directory, without actually changing directories.
@@ -68,3 +68,4 @@ Executes whatever was provided as the editor command during the init process.
 
 ## Footnotes
 *	Yes, the name of this project is 100% inspired by Starcraft.
+![Spawn more overlords](http://classic.battle.net/images/battle/scc/zerg/pix/units/Overlord1.gif)
