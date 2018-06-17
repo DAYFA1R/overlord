@@ -43,4 +43,16 @@ namespace {
     App overlord(argc, argv);
     ASSERT_EQ(overlord.init(), 0);
   }
+
+  TEST(AppConstructor, listReturnsSuccess) {
+    int argc = 2;
+    char* argv[] = {
+      "bin/ov",
+      "ls"
+    };
+
+    // Create overlord instance and asser
+    App overlord(argc, argv);
+    ASSERT_EQ(overlord.init(), 0);
+  }
 }
