@@ -60,8 +60,8 @@ App::App(int totalArgs, char** argValues) {
   }
 }
 
-void App::init() {
-  this->delegateCommand();
+int App::init() {
+  return this->delegateCommand();
 }
 
 signed int App::lookupProjectByChildDir() {
@@ -105,13 +105,13 @@ int App::delegateCommand() {
   // General Commands
   if (this->primaryCommand == "help" || this->primaryCommand == "h") {
     cout << "help" << endl;
-    // return;
+    return 0;
   }
 
   // List
   if (this->primaryCommand == "ls" || this->primaryCommand == "l") {
     cout << "list" << endl;
-    // return;
+    return 0;
   }
 
   // Initialize project
@@ -125,7 +125,7 @@ int App::delegateCommand() {
     // Build
     if (this->primaryCommand == "build" || this->primaryCommand == "b") {
       cout << "build" << endl;
-      // return;
+      return 0;
     }
 
     // Run
@@ -136,7 +136,7 @@ int App::delegateCommand() {
     // Edit
     if (this->primaryCommand == "edit" || this->primaryCommand == "e") {
       cout << "edit" << endl;
-      // return;
+      return 0;
     }
   }
 

@@ -11,9 +11,8 @@ namespace {
     // Local stubs
     int argc = 2;
     char* argv[] = {
-      "bin/ov"
-      "list",
-      "-r"
+      "bin/ov",
+      "ls"
     };
     
     // Create overlord instance and assert
@@ -31,5 +30,17 @@ namespace {
     // Create overlord instance and assert
     App overlord(argc, argv);
     ASSERT_STREQ(overlord.getPrimaryCommand().c_str(), "help");
+  }
+
+  TEST(AppConstructor, initReturnsSuccess) {
+    int argc = 2;
+    char* argv[] = {
+      "bin/ov",
+      "init"
+    };
+
+    // Create overlord instance and asser
+    App overlord(argc, argv);
+    ASSERT_EQ(overlord.init(), 0);
   }
 }
