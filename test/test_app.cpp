@@ -30,6 +30,7 @@ namespace {
     // Create overlord instance and assert
     App overlord(argc, argv);
     ASSERT_STREQ(overlord.getPrimaryCommand().c_str(), "help");
+    ASSERT_EQ(overlord.init(), 0);
   }
 
   TEST(AppConstructor, initReturnsSuccess) {
