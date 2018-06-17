@@ -37,6 +37,7 @@ clean:
 # Tests
 tests:
 	@echo " Generating stub overlord.yaml"; test/generate-conf.sh
+	@echo " Generating stub executable"; make
 	@mkdir -p $(TARGETDIR)
 	@mkdir -p $(BUILDDIR)/test
 

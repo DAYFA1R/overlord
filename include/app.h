@@ -27,6 +27,7 @@ public:
   App(int totalArgs, char** argValues);
   int init();
   string getPrimaryCommand();
+  string getActiveProjectUID();
 };
 
 #endif

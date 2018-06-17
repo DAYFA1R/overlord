@@ -101,6 +101,12 @@ string App::getPrimaryCommand() {
   return this->primaryCommand;
 }
 
+string App::getActiveProjectUID() {
+  if (this->activeProjectIndex >= 0) {
+    return this->activeProject["uid"].as<string>();
+  }
+}
+
 int App::delegateCommand() {
   // General Commands
   if (this->primaryCommand == "help" || this->primaryCommand == "h") {

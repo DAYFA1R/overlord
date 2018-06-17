@@ -55,4 +55,28 @@ namespace {
     App overlord(argc, argv);
     ASSERT_EQ(overlord.init(), 0);
   }
+
+  TEST(AppConstructor, runReturnsSuccess) {
+    int argc = 2;
+    char* argv[] = {
+      "bin/ov",
+      "run"
+    };
+
+    // Create overlord instance and asser
+    App overlord(argc, argv);
+    ASSERT_EQ(overlord.init(), 0);
+  }
+
+  TEST(AppConstructor, canDetectUID) {
+    int argc = 2;
+    char* argv[] = {
+      "bin/ov",
+      "ov"
+    };
+
+    // Create overlord instance and asser
+    App overlord(argc, argv);
+    ASSERT_STREQ(overlord.getActiveProjectUID().c_str(), argv[1]);
+  }
 }

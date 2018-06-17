@@ -6,5 +6,5 @@ projects:
     uid: ov
     dir: $(pwd)
     run: $(pwd)/bin/ov
-    build: make -C ${pwd}
+    build: make -C $(pwd)
 EOL
