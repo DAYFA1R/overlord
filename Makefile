@@ -8,7 +8,8 @@ TARGET := $(TARGETDIR)/$(TARGETNAME)
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-CFLAGS := -g -Wall -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=0
+CFLAGS := -Os -s -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=0
+DEBUG_CFLAGS := -g -Wall -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=0
 LIB := -L lib -lyaml-cpp
 INC := -I include
 
@@ -46,7 +47,7 @@ tests:
 
 	ar -rv lib/libgtest.a lib/libyaml-cpp.a $(BUILDDIR)/test/gtest-all.o
 
-	$(CXX) $(CFLAGS) --coverage -isystem include -pthread $(TEST_SOURCES) \
+	$(CXX) $(DEBUG_CFLAGS) --coverage -isystem include -pthread $(TEST_SOURCES) \
 		-o $(TEST_TARGET) $(TEST_LIB)
 
 .PHONY: clean
