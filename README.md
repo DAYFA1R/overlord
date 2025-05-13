@@ -1,8 +1,9 @@
 > ⚠️⚠️⚠️ **THIS PROJECT HAS BEEN DEPRECATED AND SUPERCEDED BY [NYDUS](https://github.com/DAYFA1R/nydus)** ⚠️⚠️⚠️
 > 
-> this was my brain 7 years ago (at the time of writing this) and didn't realize how much simpler it could be
-> if you like things that are being maintained, a makefile that actually works and compiles multi-plat, and
+> This was my brain 7 years ago (at the time of writing this) and didn't realize how much simpler it could be.
+> If you like things that are being maintained, a makefile that actually works and compiles multi-plat, and
 > also is rooted in memories of Starcraft, please go check out my tool [nydus](https://github.com/DAYFA1R/nydus)
+> 
 > **it's _way_ better**.
 
 # Overlord [![Build Status](https://travis-ci.org/DAYFA1R/overlord.svg?branch=master)](https://travis-ci.org/DAYFA1R/overlord) [![codecov](https://codecov.io/gh/DAYFA1R/overlord/branch/master/graph/badge.svg)](https://codecov.io/gh/DAYFA1R/overlord)
